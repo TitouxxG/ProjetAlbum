@@ -1,0 +1,209 @@
+/* Styles généraux */
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding-top:60px ;
+  background: linear-gradient(60deg, #081620, #333137);
+}
+
+/* Navbar */
+.navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f8d210 !important;
+}
+
+/* Hero Section */
+header {
+  padding: 50px 0;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  
+}
+
+h2{
+  color: white;
+}
+
+header p {
+  font-size: 1.2rem;
+}
+
+/* Albums Section */
+.card {
+  transition: transform 0.3s ease-in-out;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #d5d5d5;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: white;
+}
+
+.card img {
+  border-radius: 10px;
+  
+}
+.card-title {
+  color:black;
+  font-weight: 600;
+}
+
+.card-text{
+color:black;
+}
+
+.card-note{
+  color:black;
+}
+
+/* Boutons de like/dislike */
+.btn-outline-primary,
+.btn-outline-danger {
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-danger{
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Commentaires */
+.list-group-item {
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3px;  
+  background-color: #d5d5d5;
+  
+}
+.list-group-item p {
+  color:black;
+}
+
+
+/* Top Albums */
+.top-album-card {
+  
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.top-album-card img {
+  border-radius: 5px;
+}
+
+/* Progress Bar */
+.progress {
+  background-color: #e9ecef;
+  border-radius: 10px;
+  border-color: #081620;
+  height: 8px;
+}
+
+.progress-bar {
+  border-radius: 5px; 
+  border-color: #081620;
+}
+
+
+/* ALBUMS POPULAIRES */
+.card-img-top {
+width: 375px;
+height: 375px; /* Garde un format carré */
+object-fit: cover; /* L'image remplit la carte sans être déformée */
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+/* COMMENTAIRES - Image de l'album */
+.comment-album-img {
+width: 80px;
+height: 80px;
+object-fit: cover;
+border-radius: 15px;
+}
+
+
+
+.album-cover {
+  width: 375px;
+  height: 375px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+.list-group-item {
+  transition: background 0.2s ease-in-out;
+  background-color: #d5d5d5;
+}
+
+.list-group-item:hover {
+  background: #ffffff;
+}
+
+.infoAlbum h1, h3, p{
+  color: white;
+}
+
+.connexionConteneur{
+  padding-bottom: 500px;
+}
+
+
+.separator {
+  border:none; 
+  height: 3px; 
+  background-color:white; 
+}
+
+.commentNote{
+  font-size:10px;
+  margin-bottom:4px; 
+  opacity: 0.7;
+}
+
+.form-control{
+  background-color: #d5d5d5;
+}
+.form-control:hover{
+  background-color: #ffffff;
+}
+
