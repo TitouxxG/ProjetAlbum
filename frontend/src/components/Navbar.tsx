@@ -53,19 +53,10 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link btn btn-primary" to="/maliste">
-                Ma Liste
+                Tous les albums
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link btn btn-primary" to="/meilleurs-albums">
-                Meilleurs Albums de l'année
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link btn btn-primary" to="/decouvrir">
-                Découvrir
-              </NavLink>
-            </li>
+            
 
             {/* 🔥 Bouton Connexion / Profil en fonction de l'état de connexion */}
             <li className="nav-item">

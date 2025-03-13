@@ -1,17 +1,25 @@
-const express = require("express");
-const Commentaire = require("../models/Album");
-const router = express.Router();
+import { Router } from "express";
+const router = Router();
 
-// Obtenir tous les albums
-router.get("/:id", async (req, res) => {
+router.get("/search-album", async (req, res) => {
   try {
-    const commentaires = await Commentaire.find({ albumId: req.params.albumId });
-    res.json(commentaires);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+    const { query } = req.query;
+    console.log("🔍 Requête reçue :", query);
+
+    if (!query) {
+      return res.status(400).json({ error: "Paramètre 'query' requis" });
+    }
+
+    // Ici, remplace cette partie par ta logique de recherche
+    const albums = [
+      { _id: "1", title: "Thriller", artist: "Michael Jackson", cover: "cover_url" }
+    ];
+
+    res.json({ albums });
+  } catch (error) {
+    console.error("❌ Erreur serveur :", error);
+    res.status(500).json({ error: "Erreur serveur" });
   }
 });
 
-module.exports = router;
 export default router;
-

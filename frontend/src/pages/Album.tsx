@@ -1,9 +1,8 @@
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Helmet } from "react-helmet-async";
-
 
 interface Comment {
   _id?: string;
@@ -22,9 +21,10 @@ interface Album {
   _id: string;
   title: string;
   artist: string;
-  image: string;
+  cover: string;
   rating: number;
   description: string;
+  spotifyUrl: string;
 }
 
 const AlbumPage = () => {
@@ -71,6 +71,11 @@ const AlbumPage = () => {
         console.error("Erreur de récupération des commentaires :", err)
       );
   }, [id]);
+  const handleClick = () => {
+    if (album) {
+      window.open(album.spotifyUrl, "_blank"); // Ouvre le lien Spotify dans un nouvel onglet
+    }
+  };
 
   const ajouterCommentaire = () => {
     if (!user) {
@@ -164,7 +169,7 @@ const AlbumPage = () => {
         <div className="row">
           <div className="col-md-4 text-center">
             <img
-              src={album.image}
+              src={album.cover}
               alt={album.title}
               className="img-fluid album-cover"
             />
@@ -192,6 +197,12 @@ const AlbumPage = () => {
               onClick={() => setFavori(!favori)}
             >
               {favori ? "❤️ Retirer des favoris" : "🤍 Ajouter aux favoris"}
+            </button>
+            <button
+              className="btn btn-outline-success mt-3"
+              onClick={handleClick}
+            >
+              🎶 Écouter sur Spotify
             </button>
             <hr />
             <p className="description">
@@ -247,7 +258,6 @@ const AlbumPage = () => {
                       className="rounded-circle border"
                       width="50"
                       height="50"
-                      
                     />
                   </div>
                   <div className="w-100">

@@ -24,7 +24,18 @@ const HomePage = () => {
       .then((res) => res.json())
       .then((data) => setCommentaires(data))
       .catch((err) => console.error(err));
-  }, []);
+  }, []
+);
+
+  // Fonction pour choisir un nombre aléatoire d'éléments
+  const getRandomItems = (array, size) => {
+    const shuffled = [...array].sort(() => 0.5 - Math.random()); // Mélange les éléments
+    return shuffled.slice(0, size); // Retourne les N premiers éléments après avoir mélangé
+  };
+
+  // Choisir aléatoirement des albums et commentaires
+  const randomAlbums = getRandomItems(albums, 16); // 6 albums aléatoires
+  const randomCommentaires = getRandomItems(commentaires, 5); // 5 commentaires aléatoires
 
   return (
     <div>
@@ -55,7 +66,7 @@ const HomePage = () => {
         <h2 className="text-center mb-4">Le TOP du moment</h2>
         <hr className="separator" />
         <div className="row">
-          {albums.slice(0, 6).map((album) => (
+          {randomAlbums.slice(0, 6).map((album) => (
             <div
               key={album.id}
               className="col-md-4"
@@ -64,7 +75,7 @@ const HomePage = () => {
             >
               <div className="card mb-4">
                 <img
-                  src={album.image}
+                  src={album.cover}
                   className="card-img-top"
                   alt={album.title}
                   style={{
@@ -91,7 +102,7 @@ const HomePage = () => {
             <h2 className="text-center mb-4">Commentaires récents</h2>
             <hr className="separator" />
             <div className="list-group">
-              {commentaires.slice(0, 5).map((comment) => {
+              {randomCommentaires.slice(0, 5).map((comment) => {
                 const album = albums.find((a) => a._id === comment.albumId);
 
                 return (
@@ -158,7 +169,7 @@ const HomePage = () => {
                           className="text-decoration-none text-dark text-center"
                         >
                           <img
-                            src={album.image}
+                            src={album.cover}
                             className="comment-album-img mb-1"
                             alt={album.title}
                             style={{
@@ -193,7 +204,7 @@ const HomePage = () => {
             <h2 className="text-center mb-4">Top Albums</h2>
             <hr className="separator" />
             <div className="row row-cols-2">
-              {albums.slice(0, 10).map((album) => (
+              {randomAlbums.slice(7, 16).map((album) => (
                 <div key={album._id} className="col mb-3">
                   <Link
                     to={`/album/${album._id}`}
@@ -201,7 +212,7 @@ const HomePage = () => {
                   >
                     <div className="card text-center p-2 border-2 border-dark">
                       <img
-                        src={album.image}
+                        src={album.cover}
                         className="card-img-top mx-auto"
                         alt={album.title}
                         style={{ width: "80px", height: "80px" }}

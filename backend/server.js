@@ -2,11 +2,16 @@ const express = require("express");
 const session = require("express-session");
 const mongoose = require("mongoose");
 const passport = require("passport");
+const axios = require('axios');
+const router = express.Router();
 const cors = require("cors");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 require("dotenv").config();
 const uri = 'mongodb://127.0.0.1:27017/CommentairesDB';
 const { ObjectId } = require("mongodb"); 
+
+let spotifyToken = null;
+
 
 // Connexion à MongoDB
 mongoose.connect(uri)
@@ -56,15 +61,15 @@ const Commentaire = mongoose.model("commentaires", commentaireSchema);
 
 // Modèle Album
 const albumSchema = new mongoose.Schema({
-  id: Number,
-  title: String,
-  artist: String,
-  image: String,
+  spotifyId: { type: String, required: true, unique: true },
+  title: { type: String, required: true },
+  artist: { type: String, required: true },
+  cover: { type: String, required: true },
+  spotifyUrl: { type: String, required: true }, // 🔥 Ajout de l'URL Spotify
   rating: Number,
   description: String,
   aecouter: Boolean,
 }, { versionKey: false });
-
 const Album = mongoose.model("albums", albumSchema);
 
 // Modèle Utilisateur
@@ -149,7 +154,25 @@ app.get("/auth/logout", (req, res) => {
   });
 });
 
+// Route pour récupérer des albums aléatoires
+app.get("/api/albums/random", async (req, res) => {
+  try {
+    const albums = await Album.aggregate([{ $sample: { size: 6 } }]); // Récupère 6 albums aléatoires
+    res.json(albums);
+  } catch (error) {
+    res.status(500).json({ error: "Erreur lors de la récupération des albums" });
+  }
+});
 
+// Route pour récupérer des commentaires aléatoires
+app.get("/api/commentaires/random", async (req, res) => {
+  try {
+    const commentaires = await Comment.aggregate([{ $sample: { size: 5 } }]); // Récupère 5 commentaires aléatoires
+    res.json(commentaires);
+  } catch (error) {
+    res.status(500).json({ error: "Erreur lors de la récupération des commentaires" });
+  }
+});
 
 // Route pour récupérer tous les albums
 app.get("/api/albums", async (req, res) => {
@@ -333,6 +356,105 @@ app.get("/api/commentaires/user/:userId", async (req, res) => {
   }
 });
 
+
+
+
+
+
+
+const getSpotifyToken = async () => {
+  const clientId = "2258159077854ca7925e529f1072c8a8";
+  const clientSecret = "63604c076a50459cacdce5c7a3cc3caa";
+
+  const response = await axios.post(
+    "https://accounts.spotify.com/api/token",
+    new URLSearchParams({ grant_type: "client_credentials" }).toString(),
+    {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString("base64")}`,
+      },
+    }
+  );
+
+  spotifyToken = response.data.access_token;
+};
+
+// Met à jour le token toutes les heures
+getSpotifyToken();
+setInterval(getSpotifyToken, 3600 * 1000);
+
+
+
+// Route pour rechercher un album et l'enregistrer
+app.get("/api/search-album", async (req, res) => {
+  try {
+    const { query } = req.query; // Nom de l'album à chercher
+    console.log("🔍 Requête reçue :", query);
+    if (!query) return res.status(400).json({ error: "Requête invalide" });
+    
+
+    // Requête à l'API Spotify
+    const response = await axios.get(`https://api.spotify.com/v1/search`, {
+      headers: { Authorization: `Bearer ${spotifyToken}` },
+      params: { q: query, type: "album", limit: 3 }, // On limite à 3 résultats
+    });
+
+    const albums = response.data.albums.items.map(album => ({
+      spotifyId: album.id,
+      title: album.name,
+      artist: album.artists[0].name,
+      cover: album.images[1]?.url || "", // Vérifier la cover
+      spotifyUrl: album.external_urls.spotify, // Ajouter le lien Spotify
+    }));
+
+    res.json(albums);
+  } catch (error) {
+    console.error("Erreur Spotify:", error);
+    res.status(500).json({ error: "Erreur serveur" });
+  }
+});
+
+// Route pour enregistrer un album en base de données
+app.post("/api/save-album", async (req, res) => {
+  try {
+    const { spotifyId, title, artist, cover, spotifyUrl } = req.body;
+
+    console.log("Requête reçue pour enregistrer un album avec les données :", req.body);
+
+    // Vérifie si l'album existe déjà en base
+    let album = await Album.findOne({ spotifyId });
+    if (album) {
+      console.log(`L'album avec le Spotify ID ${spotifyId} existe déjà en base.`);
+    } else {
+      console.log(`L'album avec le Spotify ID ${spotifyId} n'existe pas encore, création d'un nouvel album.`);
+
+      // On crée un album avec les informations complètes
+      album = new Album({
+        spotifyId,
+        title,
+        artist,
+        cover,
+        spotifyUrl,
+        rating: null, // On initialise la note à null
+        description: "", // Description vide au départ
+        aecouter: true, // On indique que cet album est à écouter
+      });
+
+      console.log("Album créé avec succès :", album);
+      console.log("Données reçues pour enregistrer l'album :", req.body);
+
+      // Sauvegarder l'album dans la base de données
+      await album.save();
+      console.log(`Album ${title} (ID: ${album._id}) enregistré avec succès dans la base.`);
+    }
+
+    res.status(201).json(album); // Renvoie l'album entier avec son ID MongoDB
+  } catch (error) {
+    console.error("Erreur d'enregistrement de l'album :", error);
+    res.status(500).json({ error: "Erreur serveur" });
+  }
+});
 
 
 

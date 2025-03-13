@@ -36,7 +36,7 @@ header h1 {
   
 }
 
-h2{
+h2,h5{
   color: white;
 }
 
@@ -77,7 +77,7 @@ color:black;
 
 /* Boutons de like/dislike */
 .btn-outline-primary,
-.btn-outline-danger {
+.btn-outline-danger{
   border-radius: 20px;
   padding: 5px 10px;
   font-size: 0.9rem;
@@ -99,6 +99,13 @@ color:black;
   padding: 5px 10px;
   font-size: 0.9rem;
   transition: all 0.3s ease-in-out;
+}
+.btn-outline-success{
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease-in-out;
+  font-weight: 1600;
 }
 
 /* Commentaires */
@@ -207,3 +214,6 @@ border-radius: 15px;
   background-color: #ffffff;
 }
 
+.ListeAlbum{
+  margin-top: 200px;
+}
