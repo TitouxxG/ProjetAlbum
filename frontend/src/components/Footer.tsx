@@ -19,7 +19,7 @@ const Footer = () => {
             </button>
   
             {/* Bouton Nous contacter */}
-            <a href="mailto:contact@nomappli.com" className="btn btn-outline-light">
+            <a href="mailto:titouan.grimont@uphf.fr" className="btn btn-outline-light">
               📧 Nous contacter
             </a>
           </div>
