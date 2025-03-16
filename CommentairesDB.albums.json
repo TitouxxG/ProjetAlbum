@@ -1,0 +1,234 @@
+[{
+  "_id": {
+    "$oid": "67d2ee8a5bb34a4527dac229"
+  },
+  "spotifyId": "69NQGw0ZEDnhsASkg9MzXr",
+  "title": "J'AI MENTI.",
+  "artist": "Damso",
+  "cover": "https://i.scdn.co/image/ab67616d0000b2733352f7a33f9f676b1889240b",
+  "spotifyUrl": "https://open.spotify.com/album/69NQGw0ZEDnhsASkg9MzXr",
+  "rating": 90,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d2f06d98b84cd486c913ef"
+  },
+  "spotifyId": "4eLPsYPBmXABThSJ821sqY",
+  "title": "DAMN.",
+  "artist": "Kendrick Lamar",
+  "cover": "https://i.scdn.co/image/ab67616d00001e028b52c6b9bc4e43d873869699",
+  "spotifyUrl": "https://open.spotify.com/album/4eLPsYPBmXABThSJ821sqY",
+  "rating": 90,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d2f28c98b84cd486c91423"
+  },
+  "spotifyId": "2BMT7xu97SvpVB20ciDNFW",
+  "title": "graou",
+  "artist": "Miki",
+  "cover": "https://i.scdn.co/image/ab67616d00001e02b46fd96bea4bf06b8128f9f2",
+  "spotifyUrl": "https://open.spotify.com/album/2BMT7xu97SvpVB20ciDNFW",
+  "rating": 99,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d2f30498b84cd486c91455"
+  },
+  "spotifyId": "2DMye4603xl0LkWDikn4IQ",
+  "title": "BLACKBIRD",
+  "artist": "B.B. Jacques",
+  "cover": "https://i.scdn.co/image/ab67616d00001e024eb3930e2e5826cae3a54191",
+  "spotifyUrl": "https://open.spotify.com/album/2DMye4603xl0LkWDikn4IQ",
+  "rating": 100,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d2f98c98b84cd486c9156a"
+  },
+  "spotifyId": "60UzB8mOCMpc7xkuJE6Bwc",
+  "title": "Alligator Bites Never Heal",
+  "artist": "Doechii",
+  "cover": "https://i.scdn.co/image/ab67616d00001e02b245099fe26319344ddf6054",
+  "spotifyUrl": "https://open.spotify.com/album/60UzB8mOCMpc7xkuJE6Bwc",
+  "rating": 95,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d2fe3d98b84cd486c91584"
+  },
+  "spotifyId": "0WgY5ocBEP23tJiAMgawBv",
+  "title": "Crèvecoeur",
+  "artist": "Adèle Castillon",
+  "cover": "https://i.scdn.co/image/ab67616d00001e021be0fe681a85235425a42410",
+  "spotifyUrl": "https://open.spotify.com/album/0WgY5ocBEP23tJiAMgawBv",
+  "rating": 97,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d2ff0e98b84cd486c9159d"
+  },
+  "spotifyId": "6IYPmM3xsOPL2XPSvf1ZAz",
+  "title": "Sempiternal (Expanded Edition)",
+  "artist": "Bring Me The Horizon",
+  "cover": "https://i.scdn.co/image/ab67616d00001e0260cf7c8dd93815ccd6cb4830",
+  "spotifyUrl": "https://open.spotify.com/album/6IYPmM3xsOPL2XPSvf1ZAz",
+  "rating": 99,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d303c8c7698f1fda6e0b8c"
+  },
+  "spotifyId": "6mUdeDZCsExyJLMdAfDuwh",
+  "title": "Back In Black",
+  "artist": "AC/DC",
+  "cover": "https://i.scdn.co/image/ab67616d00001e020b51f8d91f3a21e8426361ae",
+  "spotifyUrl": "https://open.spotify.com/album/6mUdeDZCsExyJLMdAfDuwh",
+  "rating": 99,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d31380c7698f1fda6e0d1b"
+  },
+  "spotifyId": "5LtjW9e7zu1KvIGQiuuDo0",
+  "title": "Honeymoon",
+  "artist": "B.B. Jacques",
+  "cover": "https://i.scdn.co/image/ab67616d00001e02161f296584a97b55650de8cd",
+  "spotifyUrl": "https://open.spotify.com/album/5LtjW9e7zu1KvIGQiuuDo0",
+  "rating": 90,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d313a4c7698f1fda6e0d47"
+  },
+  "spotifyId": "2rHJ6KALXrEsviMdfrr42u",
+  "title": "Muse",
+  "artist": "Dalí",
+  "cover": "https://i.scdn.co/image/ab67616d00001e0279d8a3ce1425db269b7f7b91",
+  "spotifyUrl": "https://open.spotify.com/album/2rHJ6KALXrEsviMdfrr42u",
+  "rating": 85,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d313dac7698f1fda6e0d87"
+  },
+  "spotifyId": "4XY3AYQ1bUedzOupxozyjg",
+  "title": "Folie's je t'aime",
+  "artist": "Folie's",
+  "cover": "https://i.scdn.co/image/ab67616d00001e0215e3b8322636e24ddbe962d6",
+  "spotifyUrl": "https://open.spotify.com/album/4XY3AYQ1bUedzOupxozyjg",
+  "rating": 90,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d314c5c7698f1fda6e0dca"
+  },
+  "spotifyId": "0hvT3yIEysuuvkK73vgdcW",
+  "title": "GNX",
+  "artist": "Kendrick Lamar",
+  "cover": "https://i.scdn.co/image/ab67616d00001e02d9985092cd88bffd97653b58",
+  "spotifyUrl": "https://open.spotify.com/album/0hvT3yIEysuuvkK73vgdcW",
+  "rating": 100,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d31543c7698f1fda6e0dfd"
+  },
+  "spotifyId": "3lyj8hU0YKXZIuYK6e0O5Y",
+  "title": "Sincèrement",
+  "artist": "Hamza",
+  "cover": "https://i.scdn.co/image/ab67616d00001e02d37df871cb99477000dfe4d5",
+  "spotifyUrl": "https://open.spotify.com/album/3lyj8hU0YKXZIuYK6e0O5Y",
+  "rating": 95,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d315f0c7698f1fda6e0e39"
+  },
+  "spotifyId": "5QInkfw4rXZuKb0lyThqlb",
+  "title": "Poésie d'une pulsion",
+  "artist": "B.B. Jacques",
+  "cover": "https://i.scdn.co/image/ab67616d00001e02b6ac363750ae5a9a6885534f",
+  "spotifyUrl": "https://open.spotify.com/album/5QInkfw4rXZuKb0lyThqlb",
+  "rating": 100,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d31610c7698f1fda6e0e65"
+  },
+  "spotifyId": "3jtrAHG7GwJxObkDejibFi",
+  "title": "NEW BLUES, OLD WINE",
+  "artist": "B.B. Jacques",
+  "cover": "https://i.scdn.co/image/ab67616d00001e021f851298a239fc640b1fb8fb",
+  "spotifyUrl": "https://open.spotify.com/album/3jtrAHG7GwJxObkDejibFi",
+  "rating": 100,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d316f2c7698f1fda6e0ee4"
+  },
+  "spotifyId": "6f6tko6NWoH00cyFOl4VYQ",
+  "title": "The Divine Feminine",
+  "artist": "Mac Miller",
+  "cover": "https://i.scdn.co/image/ab67616d00001e022e92f776279eaf45d14a33fd",
+  "spotifyUrl": "https://open.spotify.com/album/6f6tko6NWoH00cyFOl4VYQ",
+  "rating": 90,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d317b1c7698f1fda6e0f45"
+  },
+  "spotifyId": "4SZko61aMnmgvNhfhgTuD3",
+  "title": "Graduation",
+  "artist": "Kanye West",
+  "cover": "https://i.scdn.co/image/ab67616d00001e0226f7f19c7f0381e56156c94a",
+  "spotifyUrl": "https://open.spotify.com/album/4SZko61aMnmgvNhfhgTuD3",
+  "rating": 90,
+  "description": "",
+  "aecouter": true
+},
+{
+  "_id": {
+    "$oid": "67d73a0e03939d4d62b0b9e6"
+  },
+  "spotifyId": "2ANVost0y2y52ema1E9xAZ",
+  "title": "Thriller",
+  "artist": "Michael Jackson",
+  "cover": "https://i.scdn.co/image/ab67616d00001e02de437d960dda1ac0a3586d97",
+  "spotifyUrl": "https://open.spotify.com/album/2ANVost0y2y52ema1E9xAZ",
+  "rating": 98,
+  "description": "",
+  "aecouter": true
+}]

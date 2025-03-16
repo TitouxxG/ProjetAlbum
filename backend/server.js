@@ -265,7 +265,7 @@ app.post("/api/commentaires", async (req, res) => {
       userName: req.user.name, // Nom de l'utilisateur
       avatar: req.user.avatar, // Avatar de l'utilisateur
       content,
-      date: new Date().toISOString(),
+      date: new Date().toISOString().split('T')[0],
       albumId,
       note,
       likes: 0,

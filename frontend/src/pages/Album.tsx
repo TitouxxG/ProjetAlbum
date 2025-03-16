@@ -1,4 +1,4 @@
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -36,6 +36,8 @@ const AlbumPage = () => {
   const [loading, setLoading] = useState(true);
   const [favori, setFavori] = useState(false);
   const [user, setUser] = useState<any>(null);
+  const [commentsToShow, setCommentsToShow] = useState(5); // Nombre de commentaires affichés
+
 
   // Vérification de l'authentification
   useEffect(() => {
@@ -134,6 +136,9 @@ const AlbumPage = () => {
     }
   };
 
+  const afficherPlusDeCommentaires = () => {
+    setCommentsToShow(commentsToShow + 5); // Ajouter 5 commentaires supplémentaires
+  };
   if (loading) {
     return (
       <div className="container text-center mt-5">
@@ -217,10 +222,10 @@ const AlbumPage = () => {
           <hr className="separator" />
 
           {/* Formulaire de commentaire */}
-          <div className="mb-3 pt-4 pb-4">
+          <div className="  mb-3 pt-4 pb-4 ">
             <input
               type="number"
-              className="form-control mb-2"
+              className="Formulaire form-control mb-2"
               placeholder="Note (1-100)"
               value={note}
               onChange={(e) =>
@@ -246,7 +251,7 @@ const AlbumPage = () => {
           {/* Liste des commentaires */}
           <div className="list-group p-4">
             {commentaires.length > 0 ? (
-              commentaires.map((comment) => (
+              commentaires.slice(0, commentsToShow).map((comment) => (
                 <div
                   key={comment._id}
                   className="list-group-item d-flex align-items-start rounded mb-3 shadow-sm p-3"
@@ -288,6 +293,14 @@ const AlbumPage = () => {
               <p className="text-muted">Aucun commentaire pour cet album.</p>
             )}
           </div>
+           {/* Bouton Voir Plus */}
+           {commentaires.length > commentsToShow && (
+            <div className="text-center">
+              <button className="btn btn-primary" onClick={afficherPlusDeCommentaires}>
+                Voir plus...
+              </button>
+            </div>
+          )}
         </div>
       </div>
       <Footer />

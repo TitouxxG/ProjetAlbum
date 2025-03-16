@@ -123,26 +123,28 @@ const ProfilePage = () => {
         </div>
 
         {/* Section Commentaires */}
-        <div className="mt-4">
-          <h3 className="fw-bold">Commentaires de {profileUser.name}</h3>
-          <hr className="separator" />
-          <div className="list-group p-4">
-            {commentaires.length > 0 ? (
-              commentaires.map((comment) => (
-                <div key={comment._id} className="list-group-item d-flex flex-column rounded mb-3 shadow-sm p-3">
-                  <strong>🎵 {comment.albumTitle}</strong>
-                  <p>{comment.content}</p>
-                  <p className="small text-muted">Note: {comment.note} / 100</p>
-                  {isOwnProfile && (
-                    <button className="btn btn-sm btn-danger  " onClick={() => supprimerCommentaire(comment._id)}>
-                      Supprimer
-                    </button>
-                  )}
-                </div>
-              ))
-            ) : (
-              <p className="text-muted">{profileUser.name} n'a encore posté aucun commentaire.</p>
-            )}
+        <div className="Sect-commentaires">
+          <div className="mt-4">
+            <h3 className="fw-bold">Commentaires de {profileUser.name}</h3>
+            <hr className="separator" />
+            <div className="list-group p-4">
+              {commentaires.length > 0 ? (
+                commentaires.map((comment) => (
+                  <div key={comment._id} className="list-group-item d-flex flex-column rounded mb-3 shadow-sm p-3">
+                    <strong>🎵 {comment.albumTitle}</strong>
+                    <p>{comment.content}</p>
+                    <p className="small text-muted">Note: {comment.note} / 100</p>
+                    {isOwnProfile && (
+                      <button className="btn btn-sm btn-danger w-25 mx-auto " onClick={() => supprimerCommentaire(comment._id)}>
+                        Supprimer
+                      </button>
+                    )}
+                  </div>
+                ))
+              ) : (
+                <p className="text-muted">{profileUser.name} n'a encore posté aucun commentaire.</p>
+              )}
+            </div>
           </div>
         </div>
       </div>

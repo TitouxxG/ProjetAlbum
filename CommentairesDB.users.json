@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "67c41d79dd2563b08eaa6bd8"
+  },
+  "googleId": "112210554499505969120",
+  "name": "Titouxx",
+  "email": "tigroudu59@gmail.com",
+  "avatar": "https://lh3.googleusercontent.com/a/ACg8ocL63b-C9bPTf5xLR59svFI3MFHU2o1zxMX2mi3sVrIME6grhhlP=s96-c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c587600bf2a6ef72907180"
+  },
+  "googleId": "107925356816982876708",
+  "name": "Testeur de Albuminaute",
+  "email": "testeurdealbuminaute@gmail.com",
+  "avatar": "https://lh3.googleusercontent.com/a/ACg8ocKSnZS8kKBai211yvAdD4bMtoZhKjGcLdFb22P8Uaj6TFM3DQ=s96-c",
+  "createdAt": {
+    "$date": "2025-03-03T10:41:36.082Z"
+  },
+  "__v": 0
+}]

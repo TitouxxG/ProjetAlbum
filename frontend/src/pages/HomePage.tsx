@@ -6,13 +6,10 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 
-
-
 const HomePage = () => {
   const navigate = useNavigate();
   const [albums, setAlbums] = useState([]);
   const [commentaires, setCommentaires] = useState([]); // Stocker les commentaires depuis MongoDB
-  
 
   useEffect(() => {
     fetch("http://localhost:5000/api/albums")
@@ -24,8 +21,7 @@ const HomePage = () => {
       .then((res) => res.json())
       .then((data) => setCommentaires(data))
       .catch((err) => console.error(err));
-  }, []
-);
+  }, []);
 
   // Fonction pour choisir un nombre aléatoire d'éléments
   const getRandomItems = (array, size) => {
@@ -34,8 +30,8 @@ const HomePage = () => {
   };
 
   // Choisir aléatoirement des albums et commentaires
-  const randomAlbums = getRandomItems(albums, 16); // 6 albums aléatoires
-  const randomCommentaires = getRandomItems(commentaires, 5); // 5 commentaires aléatoires
+  const randomAlbums = getRandomItems(albums, 17); // 6 albums aléatoires
+  const randomCommentaires = getRandomItems(commentaires, 6); // 5 commentaires aléatoires
 
   return (
     <div>
@@ -52,11 +48,12 @@ const HomePage = () => {
         <div className="container">
           <h1>🎵 Plongez au cœur de la musique avec Albuminaute 🎵</h1>
           <p className="mb-0">
-            Avec Albuminaute, explorez un large catalogue d'albums, attribuez des
-            notes, laissez des critiques et découvrez de nouvelles pépites grâce
-            aux recommandations de la communauté. Que ce soit pour garder une
-            trace de vos écoutes ou pour débattre de vos coups de cœur, cette
-            plateforme est l'outil idéal pour tous les passionnés de musique.
+            Avec Albuminaute, explorez un large catalogue d'albums, attribuez
+            des notes, laissez des critiques et découvrez de nouvelles pépites
+            grâce aux recommandations de la communauté. Que ce soit pour garder
+            une trace de vos écoutes ou pour débattre de vos coups de cœur,
+            cette plateforme est l'outil idéal pour tous les passionnés de
+            musique.
           </p>
         </div>
       </header>
@@ -102,7 +99,7 @@ const HomePage = () => {
             <h2 className="text-center mb-4">Commentaires récents</h2>
             <hr className="separator" />
             <div className="list-group">
-              {randomCommentaires.slice(0, 5).map((comment) => {
+              {randomCommentaires.slice(0, 6).map((comment) => {
                 const album = albums.find((a) => a._id === comment.albumId);
 
                 return (
@@ -121,12 +118,14 @@ const HomePage = () => {
                           width="40"
                           height="40"
                         />
-                        <strong><a
-                        href={`/profil/${comment.userId}`}
-                        className="text-decoration-none"
-                      >
-                        {comment.userName}
-                      </a></strong>
+                        <strong>
+                          <a
+                            href={`/profil/${comment.userId}`}
+                            className="text-decoration-none"
+                          >
+                            {comment.userName}
+                          </a>
+                        </strong>
                       </div>
                       <p className="mt-2">{comment.content}</p>
                       <div className="d-flex justify-content-between align-items-center">
@@ -203,21 +202,21 @@ const HomePage = () => {
           <div className="col-md-4">
             <h2 className="text-center mb-4">Top Albums</h2>
             <hr className="separator" />
-            <div className="row row-cols-2">
-              {randomAlbums.slice(7, 16).map((album) => (
+            <div className="row row-cols-2 g-3">
+              {randomAlbums.slice(7, 17).map((album) => (
                 <div key={album._id} className="col mb-3">
                   <Link
                     to={`/album/${album._id}`}
                     className="text-decoration-none text-dark"
                   >
-                    <div className="card text-center p-2 border-2 border-dark">
+                    <div className="card text-center p-2 border-2 border-dark d-flex flex-column h-100">
                       <img
                         src={album.cover}
                         className="card-img-top mx-auto"
                         alt={album.title}
                         style={{ width: "80px", height: "80px" }}
                       />
-                      <div className="card-body p-2">
+                      <div className="card-body p-2 d-flex flex-column justify-between">
                         <h6 className="card-title mb-1">{album.title}</h6>
                         <p className="card-text text-muted mb-1">
                           {album.artist}

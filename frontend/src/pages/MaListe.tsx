@@ -105,7 +105,7 @@ const MaListe = () => {
         <input
           type="text"
           className="form-control"
-          placeholder="Rechercher un album..."
+          placeholder="Rechercher un album en filtrant ou depuis Spotify..."
           value={searchTerm}
           onChange={(e) => {
             console.log("📝 Recherche :", e.target.value);
